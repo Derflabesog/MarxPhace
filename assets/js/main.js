@@ -2,7 +2,7 @@
 const header = document.getElementById("mainHeader");
 
 window.addEventListener("scroll", () => {
-    header.classList.toggle("scrolled", window.scrollY > 50);
+    header.classList.toggle("shrink", window.scrollY > 50);
 });
 
 // Initialize AOS (Animate on Scroll)
