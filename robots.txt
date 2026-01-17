@@ -1,2 +1,4 @@
 User-agent: *
 Disallow:
+Sitemap: https://www.marxphace.com/sitemap.xml
+Sitemap: https://www.marxphace.com/sitemap.xml

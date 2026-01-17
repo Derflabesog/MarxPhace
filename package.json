@@ -1,0 +1,11 @@
+{
+  "name": "maxphace-website",
+  "version": "1.0.0",
+  "description": "Website for MARX-PHASE INVESTMENT SOLUTIONS cc",
+  "scripts": {
+    "optimize-images": "node optimize-images.js"
+  },
+  "dependencies": {
+    "sharp": "^0.33.2"
+  }
+}
