@@ -18,6 +18,8 @@
   gtag('js', new Date());
   gtag('config', 'G-XXXXXXX');
   </script>
+  <!-- html2pdf Library for PDF Generation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 </head>
 <body class="site-body">
 
@@ -44,13 +46,20 @@
     </header>
 
     <main>
-        <section class="page-hero">
+        <section class="page-hero hero-capability">
             <h1>Capability Statement</h1>
             <p>Civil Engineering & Construction Capacity</p>
         </section>
 
         <section class="section">
             <div class="container">
+                
+                <!-- Download PDF Button -->
+                <div class="text-right mb-2">
+                    <button id="download-pdf" class="btn primary no-print" style="cursor: pointer;">
+                        <i class="fa-solid fa-file-pdf"></i> Download PDF Profile
+                    </button>
+                </div>
 
                 <h2>Company Details</h2>
                 <table class="capability-table">
@@ -76,6 +85,10 @@
                     <li>Skilled Artisans & General Workforce</li>
                     <li>Construction Equipment & Tools</li>
                 </ul>
+
+                <div class="my-2" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?q=80&w=1200&auto=format&fit=crop" alt="Skilled Construction Team and Equipment" class="img-rounded-cover">
+                </div>
 
                 <h2>Health, Safety, Environment & Quality</h2>
                 <p>
@@ -109,8 +122,31 @@
 
     <footer>
         <p><strong>MARX PHACE INVESTMENTS SALUTIONS</strong></p>
+        <p>Okahandja, Namibia</p>
+        <p>Phone: <a href="tel:0812196569">081 219 6569</a> | Email: <a href="mailto:marxphase@gmail.com">marxphase@gmail.com</a></p>
+        <br>
         <p>&copy; 2025 MARX PHACE INVESTMENTS SALUTIONS | Civil Engineering & Construction Services</p>
     </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    
+    <!-- PDF Generation Script -->
+    <script>
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            // Select the element to convert (Main content)
+            const element = document.querySelector('main');
+            
+            // Configure PDF options
+            const opt = {
+                margin:       [0, 0, 0, 0], // Top, Left, Bottom, Right margins
+                filename:     'Marx_Phace_Capability_Statement.pdf',
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true }, // useCORS allows loading external images
+                jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+            };
+
+            // Generate and Save
+            html2pdf().set(opt).from(element).save();
+        });
+    </script>
 </body>
 </html>
